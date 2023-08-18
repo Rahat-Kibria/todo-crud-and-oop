@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
-            $table->string('text');
-            $table->text('body');
-            $table->string('due');
+            $table->text('to_do');
+            $table->enum('is_completed', array('yes', 'no'))->default('no');
             $table->timestamps();
         });
     }
