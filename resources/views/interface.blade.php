@@ -1,5 +1,8 @@
 @extends('progenitor')
 
 @section('content')
-interface
+    <h1 class="alert alert-success">Interface</h1>
+    {{ $error_message }}
+    <br>
+    {{ $success_message }}
 @endsection

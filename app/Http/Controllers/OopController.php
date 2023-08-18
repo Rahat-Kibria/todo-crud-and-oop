@@ -6,6 +6,8 @@ use App\Oop\Cat;
 use App\Oop\Dog;
 use App\Oop\Animal;
 use App\Oop\Employee;
+use App\Oop\ErrorReport;
+use App\Oop\SuccessReport;
 use Illuminate\Http\Request;
 
 class OopController extends Controller
@@ -16,7 +18,13 @@ class OopController extends Controller
     }
     public function interface()
     {
-        return view('interface');
+        $error_report = new ErrorReport;
+        $error_message = $error_report->report();
+
+        $success_report = new SuccessReport;
+        $success_message = $success_report->report();
+
+        return view('interface', compact('error_message', 'success_message'));
     }
     public function encapsulation()
     {
