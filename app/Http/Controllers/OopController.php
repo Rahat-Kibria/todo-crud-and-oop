@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Oop\Cat;
 use App\Oop\Dog;
 use App\Oop\Animal;
+use App\Oop\Employee;
 use Illuminate\Http\Request;
 
 class OopController extends Controller
@@ -19,7 +20,10 @@ class OopController extends Controller
     }
     public function encapsulation()
     {
-        return view('encapsulation');
+        $employee = new Employee;
+        $set_salary = $employee->setSalary(25000);
+        $get_salary = $employee->getSalary();
+        return view('encapsulation', compact('get_salary'));
     }
     public function polymorphism()
     {
