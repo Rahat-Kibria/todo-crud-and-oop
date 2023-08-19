@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Oop\Cat;
 use App\Oop\Dog;
 use App\Oop\Animal;
+use App\Oop\Circle;
 use App\Oop\Employee;
 use App\Oop\ErrorReport;
+use App\Oop\Rectangle;
 use App\Oop\SuccessReport;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,13 @@ class OopController extends Controller
 {
     public function inheritance()
     {
-        return view('inheritance');
+        $rectangle = new Rectangle(150, 100);
+        $rectangle_area = $rectangle->calculateArea();
+
+        $circle = new Circle(100);
+        $circle_area = $circle->calculateArea();
+
+        return view('inheritance', compact('rectangle_area', 'circle_area'));
     }
     public function interface()
     {
